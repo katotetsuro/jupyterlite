@@ -112,7 +112,8 @@ function shouldDrop(request: Request, url: URL): boolean {
   return (
     request.method !== 'GET' ||
     url.origin.match(/^http/) === null ||
-    url.pathname.includes('/api/')
+    url.pathname.includes('/api/') ||
+    request.headers.has('Range')
   );
 }
 
